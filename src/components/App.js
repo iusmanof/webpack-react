@@ -1,9 +1,16 @@
 import React from 'react';
 
+import Home from './Home';
+import Footer from './Footer';
+
+import './style.css';
+
 const App = () => {
   return (
       <div>
-        DIV
+        {/* <div className={css}></div> */}
+        <Home />
+        <Footer />
       </div>
   );
 };
