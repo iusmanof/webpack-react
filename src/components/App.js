@@ -3,12 +3,13 @@ import React from 'react';
 import Home from './Home';
 import Footer from './Footer';
 
-import './style.scss';
+// import './style.scss';
+import { test } from './style.module.scss'
 
 const App = () => {
   return (
       <div>
-        {/* <div className={css}></div> */}
+        <div className={test}>hello</div>
         <Home />
         <Footer />
       </div>
