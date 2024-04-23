@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './Home';
 import Footer from './Footer';
 
-import './style.css';
+import './style.scss';
 
 const App = () => {
   return (
