@@ -4,7 +4,8 @@
   "description": "manuals",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "SET NODE_ENV=development && webpack"
   },
   "keywords": [],
   "author": "",

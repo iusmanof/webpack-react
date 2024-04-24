@@ -1,12 +1,19 @@
+const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
+let mode = "development";
+if (process.env.NODE_ENV === "production") {
+  mode = "production";
+}
+
 module.exports = {
-  mode: 'development',  
+  mode: mode,  
   entry: './src/index.js',
   output: {
+    path: path.resolve(__dirname, "dist"),
     filename: 'bundle.[hash].js'
   },
   devtool: 'inline-source-map',
