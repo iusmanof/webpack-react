@@ -38,7 +38,6 @@ module.exports = {
       },
       {
         test: /\.(|png|svg|jpg|jpeg|gif|ico)$/,
-        type: 'asset',
         use: ['file-loader']
       }
     ]
@@ -50,10 +49,11 @@ module.exports = {
     })
   ],
   devServer: {
-    hot: true,
     host: 'localhost',
     port: port,
     historyApiFallback: true,
-    open: true
+    open: true,
+    hot: true,
+
   }
 }; 
