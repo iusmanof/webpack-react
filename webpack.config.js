@@ -14,7 +14,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: 'bundle.[hash].js'
+    filename: 'bundle.[hash].js',
   },
   devtool: 'inline-source-map',
   module: {
@@ -45,7 +45,8 @@ module.exports = {
       },
       {
         test: /\.(|png|svg|jpg|jpeg|gif|ico)$/,
-        use: ['file-loader']
+        use: ['file-loader'],
+        type: "asset",
       }
     ]
   },
