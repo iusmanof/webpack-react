@@ -35,6 +35,11 @@ module.exports = {
         },
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(|png|svg|jpg|jpeg|gif|ico)$/,
+        type: 'asset',
+        use: ['file-loader']
       }
     ]
   },
