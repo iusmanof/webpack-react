@@ -15,6 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'bundle.[hash].js',
+    clean: true
   },
   devtool: 'inline-source-map',
   module: {
