@@ -50,9 +50,10 @@ module.exports = {
     })
   ],
   devServer: {
+    hot: true,
     host: 'localhost',
     port: port,
     historyApiFallback: true,
     open: true
   }
-};
+}; 
