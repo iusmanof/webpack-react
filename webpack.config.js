@@ -11,7 +11,10 @@ if (process.env.NODE_ENV === "production") {
 
 module.exports = {
   mode: mode,  
-  entry: './src/index.js',
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: ['.tsx', '.ts', '.jsx', '.js'],
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: 'bundle.[hash].js',
@@ -21,9 +24,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js)$/,
+        test: /\.js$/,
         use: ['babel-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        use: [ 'ts-loader'],
       },
       {
         test: /\.scss$/,
@@ -45,17 +53,18 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(|png|svg|jpg|jpeg|gif|ico)$/,
-        use: ['file-loader'],
-        type: "asset",
-      }
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        loader: "file-loader",
+      },
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
       favicon: 'public/favicon.ico'
-    })
+    }),
+    new WebpackBundleAnalyzer()
+
   ],
   devServer: {
     host: 'localhost',
