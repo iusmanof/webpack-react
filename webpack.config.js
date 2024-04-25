@@ -1,6 +1,7 @@
 const path = require("path");
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const port = process.env.PORT || 3000;
 
@@ -8,6 +9,9 @@ let mode = "development";
 if (process.env.NODE_ENV === "production") {
   mode = "production";
 }
+
+const withReport = process.env.npm_config_withReport
+
 
 module.exports = {
   mode: mode,  
@@ -63,8 +67,7 @@ module.exports = {
       template: 'public/index.html',
       favicon: 'public/favicon.ico'
     }),
-    new WebpackBundleAnalyzer()
-
+     withReport ? new BundleAnalyzerPlugin() : '',
   ],
   devServer: {
     host: 'localhost',

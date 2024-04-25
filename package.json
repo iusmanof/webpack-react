@@ -5,7 +5,8 @@
   "main": "index.tsx",
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "SET NODE_ENV=development && webpack"
+    "build": "SET NODE_ENV=development && webpack",
+    "report": "npm run build --withReport true"
   },
   "keywords": [],
   "author": "",
